@@ -1,7 +1,5 @@
 import classes from "./MainNavigation.module.css";
-import { Link } from "react-router-dom";
-import HomePage from "./HomePage";
-import EventsPage from "./EventsPage";
+import { NavLink } from "react-router-dom";
 
 function MainNavigation() {
   return (
@@ -9,10 +7,25 @@ function MainNavigation() {
       <nav>
         <ul className={classes.list}>
           <li>
-            <Link to={HomePage}>Home</Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+              end
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to={EventsPage}>Events</Link>
+            <NavLink
+              to="/events"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Events
+            </NavLink>
           </li>
         </ul>
       </nav>
